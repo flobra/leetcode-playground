@@ -1,0 +1,15 @@
+repos:
+  # Ruff linting hook
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.6.9"  # Adjust this to the latest version of ruff
+    hooks:
+      - id: ruff
+
+  # pytest hook (using a custom hook)
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run pytest tests
+        entry: pytest
+        language: system
+        types: [python]
