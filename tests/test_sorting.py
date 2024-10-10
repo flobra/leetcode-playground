@@ -1,5 +1,5 @@
 # algorithms/sorting/test_sorting.py
-from bubble_sort import bubble_sort
+from algorithms.sorting.bubble_sort import bubble_sort
 
 def test_bubble_sort():
     assert bubble_sort([3, 2, 1]) == [1, 2, 3]
