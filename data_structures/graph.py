@@ -31,10 +31,11 @@ class SimpleAdjacencyMatrixGraph:
         else:
             raise IndexError("Node indices out of bounds.")
 
-    def remove_edge(self, node1: int, node2: int):
+    def remove_edge(self, node1: int, node2: int, directed: bool = False):
         if node1 < len(self.a_m) and node2 < len(self.a_m):
             self.a_m[node1][node2] = 0
-            self.a_m[node2][node1] = 0
+            if not directed:
+                self.a_m[node2][node1] = 0
         else:
             raise IndexError("Node indices out of bounds.")
 
