@@ -7,7 +7,7 @@ class Queue:
     def __init__(self):
         self.array = []
 
-    def isEmpty(self):
+    def is_empty(self):
         return not self.array
 
     def __len__(self):
@@ -39,7 +39,7 @@ class OptimizedQueue:
         self.maxsize = maxsize
         self.lock = threading.Lock()
 
-    def isEmpty(self):
+    def is_empty(self):
         return not self.enqueue_stack and not self.dequeue_stack
 
     def __len__(self):
@@ -61,7 +61,7 @@ class OptimizedQueue:
 
     def dequeue(self):
         with self.lock:
-            if self.isEmpty():
+            if self.is_empty():
                 raise Exception("dequeue() called on empty queue.")
             if not self.dequeue_stack:
                 # Transfer elements from enqueue_stack to dequeue_stack
@@ -79,7 +79,7 @@ class OptimizedQueueNoLock:
         self.dequeue_stack = []
         self.maxsize = maxsize
 
-    def isEmpty(self):
+    def is_empty(self):
         return not self.enqueue_stack and not self.dequeue_stack
 
     def __len__(self):
@@ -99,7 +99,7 @@ class OptimizedQueueNoLock:
         self.enqueue_stack.append(item)
 
     def dequeue(self):
-        if self.isEmpty():
+        if self.is_empty():
             raise Exception("dequeue() called on empty queue.")
         if not self.dequeue_stack:
             # Transfer elements from enqueue_stack to dequeue_stack
@@ -118,7 +118,7 @@ class CircularBufferQueue:
         self.rear = 0
         self.size = 0
 
-    def isEmpty(self):
+    def is_empty(self):
         return self.size == 0
 
     def __len__(self):
@@ -140,7 +140,7 @@ class CircularBufferQueue:
         self.size += 1
 
     def dequeue(self):
-        if self.isEmpty():
+        if self.is_empty():
             raise Exception("dequeue() called on empty queue.")
         value = self.array[self.front]
         self.array[self.front] = None  # Optional: clear the slot
@@ -149,7 +149,7 @@ class CircularBufferQueue:
         return value
 
     def __str__(self):
-        if self.isEmpty():
+        if self.is_empty():
             return "[]"
         # Display the queue in order from front to rear
         return str([self.array[(self.front + i) % self.maxsize] for i in range(self.size)])

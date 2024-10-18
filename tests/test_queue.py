@@ -9,7 +9,7 @@ def _test_queue_implementation(queue_cls, maxsize=None):
         queue = queue_cls()
 
     # Test isEmpty queue behavior
-    assert queue.isEmpty()
+    assert queue.is_empty()
     assert len(queue) == 0
     with pytest.raises(Exception):
         queue.peek()  # Peek on an empty queue
