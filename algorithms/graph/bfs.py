@@ -1,9 +1,9 @@
 # /algorithms/graph/bfs.py
 
-from data_structures.graph import SimpleAdjacencyGraph
+from data_structures.graph import SimpleAdjacencyMatrixGraph
 from data_structures.queue import CircularBufferQueue
 
-def breadth_first_search(g: SimpleAdjacencyGraph, s: int):
+def breadth_first_search(g: SimpleAdjacencyMatrixGraph, s: int):
 
     if s >= len(g.a_m):
         raise IndexError("Starting node index out of bounds.")
