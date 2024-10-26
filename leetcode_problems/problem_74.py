@@ -1,5 +1,5 @@
-# leetcode_problems/problem_74.py
-# Solution for Leecode Problem #74: Search a 2D Matrix
+# /leetcode_problems/problem_74.py
+# Solution for Leetcode Problem #74: Search a 2D Matrix
 #
 # https://leetcode.com/problems/search-a-2d-matrix
 
