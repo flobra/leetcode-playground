@@ -3,15 +3,9 @@
 #
 # https://leetcode.com/problems/flip-equivalent-binary-trees
 
+from data_structures.tree import TreeNode
 from typing import Optional
 import collections
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 class Solution:
 
@@ -50,29 +44,3 @@ class Solution:
                 dq1.extend([node1.right, node1.left])
             dq2.extend([node2.left, node2.right])
         return not dq1 and not dq2
-
-    # Helper function to check whether the traversal of a Tree in Leetcode yields the same
-    # structure as locally, to apply the same tests.
-    def traverse_tree(self, root: TreeNode):
-        if not root:
-            return []
-
-        result = []
-        queue = collections.deque([root])
-
-        while queue:
-            node = queue.popleft()
-            if node:
-                result.append(node.val)
-                queue.append(node.left)
-                queue.append(node.right)
-            else:
-                result.append(None)
-
-        # Remove trailing None values for a cleaner output
-        while result and result[-1] is None:
-            result.pop()
-
-        print(result)
-
-        return result
